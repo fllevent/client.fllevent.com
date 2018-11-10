@@ -1,2 +1,2 @@
 # client.fllevent.com
-client all for fllevent.com
+client app for fllevent.com
