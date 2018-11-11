@@ -19,7 +19,7 @@
 
     <link rel="icon" 
       type="image/png" 
-      href="img/logo_only.png">
+      href="img/favicon.png">
 
   </head>
 
