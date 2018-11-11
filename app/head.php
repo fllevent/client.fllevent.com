@@ -38,14 +38,17 @@
             <a class="nav-link" href="events.php"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#"><i class="fa fa-user" aria-hidden="true"></i> Teams</a>
+            <a class="nav-link" href="teams.php"><i class="fa fa-user" aria-hidden="true"></i> Teams</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">About</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signin.php">SignIn</a>
+          </li>
         </ul>
-        <form class="form-inline my-2 my-md-0">
-          <input class="form-control" type="text" placeholder="Search Team or Event" aria-label="Search">
+        <form id = "searchInput" class="form-inline my-2 my-md-0" action="resulte.php">
+          <input class="form-control" type="text" name = "event-teamnumber" placeholder="Search Team or Event" aria-label="Search">
         </form>
       </div>
     </div>

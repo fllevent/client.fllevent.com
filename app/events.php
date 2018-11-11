@@ -28,7 +28,7 @@ include 'head.php';
               $EventName = $eventsObj[$i]["EventName"];
               echo "
               <th>$EventID</th>
-              <th><a href='resulte.php?event=$EventName'>$EventName</a></th>
+              <th><a href='resulte.php?event-teamnumber=$EventName'>$EventName</a></th>
               <th> N/A </th>
               <th> N/A </th>
               </tr>

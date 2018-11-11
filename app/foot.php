@@ -16,13 +16,19 @@
               <li><a class="text-muted" href="#about">About</a></li>
             </ul>
             <ul class="list-unstyled text-small">
-              <li><a class="text-muted" href="https://paypal.me/fllevent">Donate</a></li>
+              <li><a class="text-muted" href="signin.php">SignIn</a></li>
+            </ul>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="siginup.php">SignUp</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
             <h5>OpenSource!</h5>
             <ul class="list-unstyled text-small">
               <li><a class="text-muted" href="https://github.com/fllevent">Github</a></li>
+            </ul>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted" href="https://paypal.me/fllevent">Donate</a></li>
             </ul>
           </div>
         </div>
