@@ -13,6 +13,9 @@
 
     <!-- Custom styles for this template -->
     <link href="css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/fe-awsomeicons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="icon" 
       type="image/png" 
@@ -21,37 +24,31 @@
   </head>
 
   <body>
-    
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-      <a class="navbar-brand" href="home.php">LMR App</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.php">Fll Event</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExample04">
+      <div class="collapse navbar-collapse" id="navbarsExample07">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="home.php">Home</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="events.php"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="timeclock.php">Time Clock</a>
+            <a class="nav-link disabled" href="#"><i class="fa fa-user" aria-hidden="true"></i> Teams</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="scouting.php">Scouting</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="management.php">Management Tool</a>
+            <a class="nav-link disabled" href="#">About</a>
           </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['username']?></a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#settings">Settings</a>
-              <a class="dropdown-item" href="help.php">Help</a>
-              <a class="dropdown-item" href="logout.php">LogOut</a>
-            </div>
-          </li>
-        </ul>
+        <form class="form-inline my-2 my-md-0">
+          <input class="form-control" type="text" placeholder="Search Team or Event" aria-label="Search">
+        </form>
       </div>
-    </nav>
+    </div>
+  </nav>
+
+</div>
