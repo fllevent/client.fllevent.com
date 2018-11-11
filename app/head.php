@@ -34,7 +34,7 @@
 
       <div class="collapse navbar-collapse" id="navbarsExample07">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="events.php"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a>
           </li>
           <li class="nav-item">
@@ -44,7 +44,7 @@
             <a class="nav-link disabled" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="signin.php">SignIn</a>
+            <a class="nav-link" href="signin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> SignIn</a>
           </li>
         </ul>
         <form id = "searchInput" class="form-inline my-2 my-md-0" action="resulte.php">
