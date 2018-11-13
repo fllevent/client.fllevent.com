@@ -27,7 +27,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.php">Fll Event</a>
+      <a class="navbar-brand" href="/">Fll Event</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,19 +35,19 @@
       <div class="collapse navbar-collapse" id="navbarsExample07">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="events.php"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a>
+            <a class="nav-link" href="events"><i class="fa fa-calendar" aria-hidden="true"></i> Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="teams.php"><i class="fa fa-user" aria-hidden="true"></i> Teams</a>
+            <a class="nav-link" href="teams"><i class="fa fa-user" aria-hidden="true"></i> Teams</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="signin.php"><i class="fa fa-sign-in" aria-hidden="true"></i> SignIn</a>
+            <a class="nav-link" href="signin"><i class="fa fa-sign-in" aria-hidden="true"></i> SignIn</a>
           </li>
         </ul>
-        <form id = "searchInput" class="form-inline my-2 my-md-0" action="resulte.php">
+        <form id = "searchInput" class="form-inline my-2 my-md-0" action="resulte">
           <input class="form-control" type="text" name = "event-teamnumber" placeholder="Search Team or Event" aria-label="Search">
         </form>
       </div>

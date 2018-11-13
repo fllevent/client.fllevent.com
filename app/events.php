@@ -15,7 +15,7 @@ include 'head.php';
         </thead>
         <tbody>         
           <?php
-          $ch = curl_init("http://192.168.1.113:4000/api/events");
+          $ch = curl_init("http://10.5.0.4:8000/api/events");
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           curl_setopt($ch, CURLOPT_HEADER, 0);
           $data = curl_exec($ch);
@@ -28,7 +28,7 @@ include 'head.php';
               $EventName = $eventsObj[$i]["EventName"];
               echo "
               <th>$EventID</th>
-              <th><a href='resulte.php?event-teamnumber=$EventName'>$EventName</a></th>
+              <th><a href='resulte?event-teamnumber=$EventName'>$EventName</a></th>
               <th> N/A </th>
               <th> N/A </th>
               </tr>

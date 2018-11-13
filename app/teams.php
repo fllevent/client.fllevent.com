@@ -1,7 +1,7 @@
 <?php 
 include 'head.php';
 
-$ch_name = curl_init("http://192.168.1.113:4000/api/teams");
+$ch_name = curl_init("http://10.5.0.4:8000/api/teams");
           curl_setopt($ch_name, CURLOPT_RETURNTRANSFER, true);
           curl_setopt($ch_name, CURLOPT_HEADER, 0);
           $data_name = curl_exec($ch_name);
