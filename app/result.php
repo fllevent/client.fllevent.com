@@ -10,7 +10,7 @@ if (is_numeric($event_teamnumber)) {
           $data_name = curl_exec($ch_name);
           curl_close($ch_name);
           
-          $resulteObj = json_decode($data_name, true);
+          $resultObj = json_decode($data_name, true);
 } else {
   $ch_number = curl_init("http://10.5.0.4:8000/api/event/$event_teamnumber");
           curl_setopt($ch_number, CURLOPT_RETURNTRANSFER, true);
@@ -18,7 +18,7 @@ if (is_numeric($event_teamnumber)) {
           $data_number = curl_exec($ch_number);
           curl_close($ch_number);
           
-          $resulteObj = json_decode($data_number, true);
+          $resultObj = json_decode($data_number, true);
 }
 
 ?>
@@ -37,16 +37,16 @@ if (is_numeric($event_teamnumber)) {
         <tbody>
           <?php
           if (is_numeric($event_teamnumber)) {
-            if ($resulteObj == null) {
+            if ($resultObj == null) {
               echo "Event not found error null one";
-            } else if ($resulteObj == "null") {
+            } else if ($resultObj == "null") {
               echo "Event not found error null two";
             } else {
-                $MatchID = $resulteObj[0]["MatchID"];
-                $TeamNumber = $resulteObj[0]["TeamNumber"];
-                $MatchOne = $resulteObj[0]["MatchScoreOne"];
-                $MatchTwo = $resulteObj[0]["MatchScoreTwo"];
-                $MatchThree = $resulteObj[0]["MatchScoreThree"];
+                $MatchID = $resultObj[0]["MatchID"];
+                $TeamNumber = $resultObj[0]["TeamNumber"];
+                $MatchOne = $resultObj[0]["MatchScoreOne"];
+                $MatchTwo = $resultObj[0]["MatchScoreTwo"];
+                $MatchThree = $resultObj[0]["MatchScoreThree"];
 
                 echo "
                   <th>$MatchID</th>
@@ -58,19 +58,19 @@ if (is_numeric($event_teamnumber)) {
                   ";
             }
           } else {
-            if ($resulteObj == null) {
+            if ($resultObj == null) {
               echo "Event not found error null one";
-            } else if ($resulteObj == "null") {
+            } else if ($resultObj == "null") {
               echo "Event not found error null two";
-            } else if ($resulteObj[0]["Match"] == null) {
+            } else if ($resultObj[0]["Match"] == null) {
               echo "Event not found error matchs not found";
             } else {
-              for ($i = 0; $i <= count($resulteObj[0]["Match"]) -1; $i++) {
-                $MatchID = $resulteObj[0]["Match"][$i]["MatchID"];
-                $TeamNumber = $resulteObj[0]["Match"][$i]["TeamNumber"];
-                $MatchOne = $resulteObj[0]["Match"][$i]["MatchScoreOne"];
-                $MatchTwo = $resulteObj[0]["Match"][$i]["MatchScoreTwo"];
-                $MatchThree = $resulteObj[0]["Match"][$i]["MatchScoreThree"];
+              for ($i = 0; $i <= count($resultObj[0]["Match"]) -1; $i++) {
+                $MatchID = $resultObj[0]["Match"][$i]["MatchID"];
+                $TeamNumber = $resultObj[0]["Match"][$i]["TeamNumber"];
+                $MatchOne = $resultObj[0]["Match"][$i]["MatchScoreOne"];
+                $MatchTwo = $resultObj[0]["Match"][$i]["MatchScoreTwo"];
+                $MatchThree = $resultObj[0]["Match"][$i]["MatchScoreThree"];
 
                 echo "
                   <th>$MatchID</th>

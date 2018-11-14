@@ -21,6 +21,16 @@
       type="image/png" 
       href="img/favicon.png">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109514313-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109514313-2');
+    </script>
+    
   </head>
 
   <body>
@@ -47,7 +57,7 @@
             <a class="nav-link" href="signin"><i class="fa fa-sign-in" aria-hidden="true"></i> SignIn</a>
           </li>
         </ul>
-        <form id = "searchInput" class="form-inline my-2 my-md-0" action="resulte">
+        <form id = "searchInput" class="form-inline my-2 my-md-0" action="result">
           <input class="form-control" type="text" name = "event-teamnumber" placeholder="Search Team or Event" aria-label="Search">
         </form>
       </div>

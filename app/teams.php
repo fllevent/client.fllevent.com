@@ -7,7 +7,7 @@ $ch_name = curl_init("http://10.5.0.4:8000/api/teams");
           $data_name = curl_exec($ch_name);
           curl_close($ch_name);
           
-          $resulteObj = json_decode($data_name, true);
+          $resultObj = json_decode($data_name, true);
 
 ?>
     <h2 class="text-center">Teams</h2>
@@ -24,17 +24,17 @@ $ch_name = curl_init("http://10.5.0.4:8000/api/teams");
         </thead>
         <tbody>
           <?php
-            if ($resulteObj == null) {
+            if ($resultObj == null) {
               echo "Event not found error null one";
-            } else if ($resulteObj == "null") {
+            } else if ($resultObj == "null") {
               echo "Event not found error null two";
             } else {
-                for ($i = 0; $i <= count($resulteObj); $i++){
-                    $MatchID = $resulteObj[$i]["MatchID"];
-                    $TeamNumber = $resulteObj[$i]["TeamNumber"];
-                    $MatchOne = $resulteObj[$i]["MatchScoreOne"];
-                    $MatchTwo = $resulteObj[$i]["MatchScoreTwo"];
-                    $MatchThree = $resulteObj[$i]["MatchScoreThree"];
+                for ($i = 0; $i <= count($resultObj); $i++){
+                    $MatchID = $resultObj[$i]["MatchID"];
+                    $TeamNumber = $resultObj[$i]["TeamNumber"];
+                    $MatchOne = $resultObj[$i]["MatchScoreOne"];
+                    $MatchTwo = $resultObj[$i]["MatchScoreTwo"];
+                    $MatchThree = $resultObj[$i]["MatchScoreThree"];
 
                     echo "
                       <th>$MatchID</th>

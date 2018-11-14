@@ -1,8 +1,8 @@
 <?php
 
-$userName = $password = "";
+$userName = $password = $password_confirmation = "";
 
-$userName_err = $password_err = "";
+$userName_err = $password_err = $password_confirmation_err  = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -79,18 +79,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  <body class="text-center">
     <form class="form-signin" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <img class="mb-4" src="img/logo.png" alt="" width="172" height="172">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
       <div class="form-group <?php echo (!empty($userName_err)) ? 'has-error' : ''; ?>">
         <label>User Name</label>
         <input type="text" name="userName"class="form-control" value="<?php echo $userName; ?>" required autofocus>
         <span class="help-block"><?php echo $userName_err; ?></span>
        </div>  
-      <!-- <label for="inputEmail" class="sr-only">Username</label>
-      <input id="inputEmail" class="form-control" placeholder="Email address" required autofocus> -->
       <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
         <label>Password</label>
         <input type="password" name="password" class="form-control">
         <span class="help-block"><?php echo $password_err; ?></span>
+      </div>
+      <div class="form-group <?php echo (!empty($password_confirmation_err)) ? 'has-error' : ''; ?>">
+        <label>Password Confirmation</label>
+        <input type="password" name="password_confirmation" class="form-control">
+        <span class="help-block"><?php echo $password_confirmation_err; ?></span>
       </div>
       <div class="form-group">
         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
