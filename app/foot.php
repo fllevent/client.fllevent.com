@@ -16,7 +16,13 @@
         <div class="col-6 col-md">
           <h5>Resources</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#about">About</a></li>
+            <li><a class="text-muted" href="about">About</a></li>
+          </ul>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="androidapp">Android App</a></li>
+          </ul>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="iosapp">Ios App</a></li>
           </ul>
           <ul class="list-unstyled text-small">
             <li><a class="text-muted" href="signin"><i class="fa fa-sign-in fe-dark" aria-hidden="true"></i> SignIn</a></li>

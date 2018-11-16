@@ -52,7 +52,7 @@
             <a class="nav-link" href="teams"><i class="fa fa-user" aria-hidden="true"></i> Teams</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">About</a>
+            <a class="nav-link disabled" href="about">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="signin"><i class="fa fa-sign-in" aria-hidden="true"></i> SignIn</a>
