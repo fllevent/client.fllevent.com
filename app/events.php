@@ -15,7 +15,7 @@ include 'head.php';
         </thead>
         <tbody>         
           <?php
-          $ch = curl_init("http://10.5.0.4:8000/api/events");
+          $ch = curl_init("http://10.5.0.4:8000/api/event/allevents");
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           curl_setopt($ch, CURLOPT_HEADER, 0);
           $data = curl_exec($ch);
