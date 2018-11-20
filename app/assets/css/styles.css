@@ -1,0 +1,110 @@
+.nav.navbar-nav.text-center {
+  text-align: center;
+}
+
+.navbar.navbar-light.navbar-expand-md {
+  background-color: #1e2833;
+}
+
+#navcol-1 {
+  color: #FFF;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #ffffff;
+  font-family: Aldrich, sans-serif;
+}
+
+.row.input {
+  font-family: Aldrich, sans-serif;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar-light .navbar-brand {
+  color: white !important;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-color: rgba(255,255,255,0);
+  color: #ffffff;
+  filter: invert(100%);
+}
+
+.hero {
+  background-color: #272e30;
+  color: white;
+  min-height: 560px;
+}
+
+.subhead {
+  font-family: Aldrich, sans-serif;
+}
+
+.display-4.text-center.head {
+  margin-top: 30px;
+  font-family: Aldrich, sans-serif;
+}
+
+.hero-fill {
+  /* margin-top: 40px; */
+  padding-top: 40px;
+  text-align: justify;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  font-family: Aldrich, sans-serif;
+}
+
+.events-list {
+  color: white;
+}
+
+.events-mid {
+  background-color: #272e30;
+  color: white;
+  height: 50px;
+  margin-bottom: 0px;
+}
+
+.events-mid.h1 {
+  background-color: #272e30;
+  color: green;
+}
+
+.events-mid.h1 {
+  background-color: #272e30;
+  color: white;
+}
+
+.table-responsive.table-bordered.table.table-hover.table-bordered.results {
+  margin-bottom: 50px;
+}
+
+.table-responsive.teams-table {
+  margin: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+#inbutton {
+  color: blue;
+}
+
+#hero-form {
+  padding-bottom: 20px;
+}
+
+.bg-other {
+  background-color: #ffffff;
+  color: black;
+}
