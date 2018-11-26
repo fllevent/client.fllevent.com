@@ -19,33 +19,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   
   if(empty($userName_err) && empty($password_err)) {
-    $url = 'http://10.5.0.4:8000/login';
-    $data = array('username' => $userName, 'password' => $password);
+    $loginUrl = 'http://10.5.0.4:8000/login';
+    $loginData = array('username' => $userName, 'password' => $password);
 
     // use 1 'http' even if you send the request to https://...
-    $options = array(
+    $loginoptions = array(
       'http' => array(
           'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
           'method'  => 'POST',
-          'content' => http_build_query($data)
+          'content' => http_build_query($loginData)
       )
     );
-    $context  = stream_context_create($options);
-    $result = @file_get_contents($url, false, $context);
-    if ($result === FALSE) {$userName_err = "User Name or Password not found";}
+    $loginContext  = stream_context_create($loginoptions);
+    $loginResulte = @file_get_contents($loginUrl, false, $loginContext);
 
-    $result = json_decode($result, true);
+    if ($loginResulte === FALSE) {$userName_err = "User Name or Password not found";}
 
-    if ($result['token'] != "") {
-      session_start();
-      $_SESSION['username'] = $userName;
-      $_SESSION['level'] = 0;
-      $_SESSION['token'] = $result['token'];
+    $loginResulte = json_decode($loginResulte, true);
 
-      if($_SESSION['level'] == 0) {
-        header('location: authenticated/home');
-      } else {
-        header('location: signin');
+    if ($loginResulte['token'] != "") {
+      $url = 'http://10.5.0.4:8000/api/auth/hello';
+      $options = array('http' => array(
+          'method'  => 'GET',
+          'header' => 'Authorization: Bearer '. $loginResulte['token']
+      ));
+      $context  = stream_context_create($options);
+      $result = file_get_contents($url, false, $context);
+
+      $result = json_decode($result, true);
+      // var_dump($result);
+
+      if ($result != "") {
+        session_start();
+        $_SESSION['username'] = $userName;
+        $_SESSION['userID'] = $result['userID'];
+        $_SESSION['level'] = 1;
+        $_SESSION['token'] = $loginResulte['token'];
+
+        if($_SESSION['level'] == 1) {
+          header('location: authenticated/home');
+        } else {
+          header('location: signin');
+        }
       }
     }
   }
