@@ -22,8 +22,8 @@
     <script src="../../dist/js/custom.js"></script>
     <!--This page JavaScript -->
     <!--chartis chart-->
-    <script src="../../assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <!-- <script src="../../assets/libs/chartist/dist/chartist.min.js"></script> -->
+    <!-- <script src="../../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script> -->
     <script src="../../dist/js/pages/dashboards/dashboard1.js"></script>
 </body>
 

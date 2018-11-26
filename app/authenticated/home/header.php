@@ -20,7 +20,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <meta name="author" content="">
     <title>FllEvent Authenticated</title>
     <!-- Custom CSS -->
-    <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!-- <link href="../../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet"> -->
     <!-- Custom CSS -->
     <link href="../../dist/css/style.min.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
