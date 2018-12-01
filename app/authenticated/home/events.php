@@ -55,24 +55,30 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
+                                            <?php
+                                                $ch = curl_init("http://10.5.0.4:8000/api/v1/event/allevents");
+                                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                                curl_setopt($ch, CURLOPT_HEADER, 0);
+                                                $data = curl_exec($ch);
+                                                curl_close($ch);
+
+                                                $eventsObj = json_decode($data, true);
+                                                // var_dump($eventsObj);
+
+                                                for ($i = 0; $i <= count($eventsObj) -1; $i++) {
+                                                    if ($eventsObj[$i]["Owner"] == $_SESSION["userID"]) {
+                                                        $EventID = $eventsObj[$i]["EventID"];
+                                                        $EventName = $eventsObj[$i]["EventName"];
+                                                        echo "
+                                                        <th> $EventID </th>
+                                                        <th><a href='result?event-teamnumber=$EventName'>$EventName</a></th>
+                                                        <th> N/A </th>
+                                                        <th> 2018 </th>
+                                                         </tr>
+                                                        "; 
+                                                    }
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

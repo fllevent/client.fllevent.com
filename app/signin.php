@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $loginResulte = json_decode($loginResulte, true);
 
     if ($loginResulte['token'] != "") {
-      $url = 'http://10.5.0.4:8000/api/auth/hello';
+      $url = 'http://10.5.0.4:8000/api/v1/auth/hello';
       $options = array('http' => array(
           'method'  => 'GET',
           'header' => 'Authorization: Bearer '. $loginResulte['token']

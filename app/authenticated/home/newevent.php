@@ -1,6 +1,26 @@
 <?php
     include 'header.php';
-?>        <!-- ============================================================== -->
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        echo "<script>console.log('hello')</script>";
+        $url = 'http://10.5.0.4:8000/api/v1/auth/event/addevent';
+
+        $eventData = array('EventName' => $_POST["eventName"], 'Owner' => $_SESSION["userID"]);
+
+        $options = array('http' => array(
+          'method'  => 'POST',
+          'header' => 'Authorization: Bearer '. $_SESSION["token"],
+          'content' => http_build_query($eventData)
+        ));
+        $context  = stream_context_create($options);
+        $result = @file_get_contents($url, false, $context);
+
+        $result = json_decode($result, true);
+        
+        echo ' <meta http-equiv="refresh" content="0;url=/authenticated/home/events">';
+    }
+?>  
+      <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
@@ -73,58 +93,16 @@
                     <div class="col-lg-8 col-xlg-9 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-horizontal form-material">
+                                <form class="form-horizontal form-material" method="post" action="<?php echo $_SERVER["REQUEST_URI"];?>">
                                     <div class="form-group">
                                         <label class="col-md-12">Event Name</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="EventName Year" class="form-control form-control-line">
-                                        </div>
-                                    </div>
-                                    <!-- <div class="form-group">
-                                        <label class="col-md-12">Number of Teams</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="EventName Year" class="form-control form-control-line">
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
-                                        <div class="col-md-12">
-                                            <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="form-group">
-                                        <label class="col-md-12">Password</label>
-                                        <div class="col-md-12">
-                                            <input type="password" class="form-control form-control-line">
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="form-group">
-                                        <label class="col-md-12">Phone No</label>
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                            <input type="text" name="eventName" placeholder="EventName Year" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-12">Message</label>
-                                        <div class="col-md-12">
-                                            <textarea rows="5" class="form-control form-control-line"></textarea>
-                                        </div>
-                                    </div> -->
-                                    <!-- <div class="form-group">
-                                        <label class="col-sm-12">Select Country</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
-                                                <option>London</option>
-                                                <option>India</option>
-                                                <option>Usa</option>
-                                                <option>Canada</option>
-                                                <option>Thailand</option>
-                                            </select>
-                                        </div>
-                                    </div> -->
-                                    <div class="form-group">
-                                        <div class="col-sm-12">
-                                            <button class="btn btn-success">Create Event</button>
+                                            <button type="submit" class="btn btn-success">Create Event</button>
                                         </div>
                                     </div>
                                 </form>
