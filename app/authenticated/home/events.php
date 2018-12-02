@@ -52,6 +52,8 @@
                                                 <th scope="col">Event Name</th>
                                                 <th scope="col">Location</th>
                                                 <th scope="col">Year</th>
+                                                <th scope="col">Edit Event</th>
+                                                <th scope="col">Remove Event</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,7 +65,6 @@
                                                 curl_close($ch);
 
                                                 $eventsObj = json_decode($data, true);
-                                                // var_dump($eventsObj);
 
                                                 for ($i = 0; $i <= count($eventsObj) -1; $i++) {
                                                     if ($eventsObj[$i]["Owner"] == $_SESSION["userID"]) {
@@ -74,6 +75,9 @@
                                                         <th><a href='result?event-teamnumber=$EventName'>$EventName</a></th>
                                                         <th> N/A </th>
                                                         <th> 2018 </th>
+                                                        <th><a href='result?event-teamnumber=$EventName' class='btn btn-primary' role='button'>Edit</a></th>
+                                                        <th><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#remove-confirm'>Remove</button></th>
+                                                      
                                                          </tr>
                                                         "; 
                                                     }
@@ -113,6 +117,27 @@
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="remove-confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Remove Event conformation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>This is permanent there is no recovery</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger"><a href='/authenticated/home/removeevent?eventname=<?php echo $EventName; ?>' >Remove the Event</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
 <?php
     include 'footer.php';
 ?>

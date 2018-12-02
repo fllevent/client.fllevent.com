@@ -12,12 +12,37 @@
               $resultObj = json_decode($data_number, true);
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        // echo "hi";
-        // echo $_POST["match-1"];
-        // echo $_POST["match-2"];
-        // echo $_POST["match-3"];
+        $url = 'http://10.5.0.4:8000/api/v1/auth/matches/addmatch';
 
-        // s
+        $eventData = array('TeamName' => $_POST["team-name"],
+                           'TeamNumber' => $_POST["team-number"],
+                           'EventName' => $_GET["event-teamnumber"],
+                           'MatchScoreOne' => $_POST["match-1"],
+                           'MatchScoreTwo' => $_POST["match-2"],
+                           'MatchScoreThree' => $_POST["match-3"],
+                           'Year' => "2018",
+                            );
+
+        $options = array('http' => array(
+          'method'  => 'POST',
+          'header' => 'Authorization: Bearer '. $_SESSION["token"],
+          'content' => http_build_query($eventData)
+        ));
+        $context  = stream_context_create($options);
+        $result = @file_get_contents($url, false, $context);
+
+
+        $result = json_decode($result, true);
+
+        $ch_number = curl_init("http://10.5.0.4:8000/api/v1/event/singleevent/$event_teamnumber");
+              curl_setopt($ch_number, CURLOPT_RETURNTRANSFER, true);
+              curl_setopt($ch_number, CURLOPT_HEADER, 0);
+              $data_number = curl_exec($ch_number);
+              curl_close($ch_number);
+
+              $resultObj = json_decode($data_number, true);
+
+        // echo "<script>location.reload();</script>";
         
     }
 ?>
@@ -70,10 +95,12 @@
                                             <tr>
                                             <th>#</th>
                                             <th>Team Number</th>
+                                            <th>Team Name</th>
                                             <th>Match #1</th>
                                             <th>Match #2</th>
                                             <th>Match #3</th>
-                                            <th>Update</th>
+                                            <th>Update Team</th>
+                                            <th>Remove Team</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -83,11 +110,12 @@
                                               } else if ($resultObj == "null") {
                                                 echo "Event not found error null two";
                                               } else if ($resultObj[0]["Match"] == null) {
-                                                echo "Event not found error matchs not found";
+                                                echo "No matches found";
                                               } else {
                                                 for ($i = 0; $i <= count($resultObj[0]["Match"]) -1; $i++) {
                                                   $MatchID = $resultObj[0]["Match"][$i]["MatchID"];
                                                   $TeamNumber = $resultObj[0]["Match"][$i]["TeamNumber"];
+                                                  $TeamName = $resultObj[0]["Match"][$i]["TeamName"];
                                                   $MatchOne = $resultObj[0]["Match"][$i]["MatchScoreOne"];
                                                   $MatchTwo = $resultObj[0]["Match"][$i]["MatchScoreTwo"];
                                                   $MatchThree = $resultObj[0]["Match"][$i]["MatchScoreThree"];
@@ -95,10 +123,12 @@
                                                   echo "
                                                     <th>$MatchID</th>
                                                     <th>$TeamNumber</th>
+                                                    <th>$TeamName<?th>
                                                     <th>$MatchOne</th>
                                                     <th>$MatchTwo</th>
                                                     <th>$MatchThree</th>
-                                                    <th></th>
+                                                    <th><a href='#' class='btn btn-primary' role='button'>Edit</a></th>
+                                                    <th><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#remove-team'>Remove</button></th>
                                                     </tr>
                                                     ";
                                                 }
@@ -180,6 +210,27 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="remove-team" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Remove Team conformation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>This is permanent there is no recovery</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger"><a href='#' >Remove the Team</a></button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 <?php
     include 'footer.php';

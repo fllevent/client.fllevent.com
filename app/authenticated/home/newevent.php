@@ -2,7 +2,6 @@
     include 'header.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo "<script>console.log('hello')</script>";
         $url = 'http://10.5.0.4:8000/api/v1/auth/event/addevent';
 
         $eventData = array('EventName' => $_POST["eventName"], 'Owner' => $_SESSION["userID"]);
