@@ -105,34 +105,34 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                               if ($resultObj == null) {
-                                                echo "Event not found error null one";
-                                              } else if ($resultObj == "null") {
-                                                echo "Event not found error null two";
-                                              } else if ($resultObj[0]["Match"] == null) {
-                                                echo "No matches found";
-                                              } else {
-                                                for ($i = 0; $i <= count($resultObj[0]["Match"]) -1; $i++) {
-                                                  $MatchID = $resultObj[0]["Match"][$i]["MatchID"];
-                                                  $TeamNumber = $resultObj[0]["Match"][$i]["TeamNumber"];
-                                                  $TeamName = $resultObj[0]["Match"][$i]["TeamName"];
-                                                  $MatchOne = $resultObj[0]["Match"][$i]["MatchScoreOne"];
-                                                  $MatchTwo = $resultObj[0]["Match"][$i]["MatchScoreTwo"];
-                                                  $MatchThree = $resultObj[0]["Match"][$i]["MatchScoreThree"];
-                                                
-                                                  echo "
-                                                    <th>$MatchID</th>
-                                                    <th>$TeamNumber</th>
-                                                    <th>$TeamName<?th>
-                                                    <th>$MatchOne</th>
-                                                    <th>$MatchTwo</th>
-                                                    <th>$MatchThree</th>
-                                                    <th><a href='#' class='btn btn-primary' role='button'>Edit</a></th>
-                                                    <th><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#remove-team'>Remove</button></th>
-                                                    </tr>
-                                                    ";
+                                                if ($resultObj == null) {
+                                                    echo "Event not found error null one";
+                                                } else if ($resultObj == "null") {
+                                                  echo "Event not found error null two";
+                                                } else if ($resultObj[0]["Match"] == null) {
+                                                  echo "No matches found";
+                                                } else {
+                                                  for ($i = 0; $i <= count($resultObj[0]["Match"]) -1; $i++) {
+                                                    $MatchID = $resultObj[0]["Match"][$i]["MatchID"];
+                                                    $TeamNumber = $resultObj[0]["Match"][$i]["TeamNumber"];
+                                                    $TeamName = $resultObj[0]["Match"][$i]["TeamName"];
+                                                    $MatchOne = $resultObj[0]["Match"][$i]["MatchScoreOne"];
+                                                    $MatchTwo = $resultObj[0]["Match"][$i]["MatchScoreTwo"];
+                                                    $MatchThree = $resultObj[0]["Match"][$i]["MatchScoreThree"];
+                                                  
+                                                    echo "
+                                                      <th>$MatchID</th>
+                                                      <th>$TeamNumber</th>
+                                                      <th>$TeamName<?th>
+                                                      <th>$MatchOne</th>
+                                                      <th>$MatchTwo</th>
+                                                      <th>$MatchThree</th>
+                                                      <th><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editteam'>Edit</button></th>
+                                                      <th><button type='button' class='btn btn-danger' data-toggle='modal' data-target='#remove-team'>Remove</button></th>
+                                                      </tr>
+                                                      ";
+                                                  }
                                                 }
-                                              }
                                             ?>
                                         </tbody>
                                     </table>
@@ -170,6 +170,47 @@
         <!-- ============================================================== -->
 
 <!-- Modal -->
+<div class="modal fade" id="editteam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Team</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="editmatch">
+            <div class="form-group">
+              <label for="team-number" class="col-form-label">Team Number:</label>
+              <input type="number" name="team-number"  class="form-control" id="team-number">
+            </div>
+            <div class="form-group">
+              <label for="team-name" class="col-form-label">Team Name:</label>
+              <input type="text" name="team-name" class="form-control" id="team-name">
+            </div> 
+            <div class="form-group">
+              <label for="match-1" class="col-form-label">Match 1:</label>
+              <input type="number" name="match-1" class="form-control" id="match-1">
+            </div> 
+            <div class="form-group">
+              <label for="match-2" class="col-form-label">Match 2:</label>
+              <input type="number" name="match-2" class="form-control" id="match-2">
+            </div> 
+            <div class="form-group">
+              <label for="match-3" class="col-form-label">Match 3:</label>
+              <input type="number" name="match-3"  class="form-control" id="match-3">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update Team</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="createTeam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -226,7 +267,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger"><a href='removematch?teamnumber=<?php echo $TeamNumber ?>&referance=<?php echo $_SERVER["REQUEST_URI"] ?>' >Remove the Team</a></button>
+                <button type="button" class="btn btn-danger"><a href='/authenticated/services/removematch?teamnumber=<?php echo $TeamNumber ?>&referance=<?php echo $_SERVER["REQUEST_URI"] ?>' >Remove the Team</a></button>
               </div>
             </div>
           </div>

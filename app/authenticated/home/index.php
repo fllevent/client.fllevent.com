@@ -42,7 +42,6 @@
                         <div class="card">
                             <div class="card-body">
                               <p>This part of the site is for users to create an event and keep scores updated through out the event and also for them to manage more then one event</p>
-                                <?php echo $_SESSION['userID']; ?>
                             </div>
                         </div>
                     </div>

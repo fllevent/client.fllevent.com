@@ -133,7 +133,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger"><a href='/authenticated/home/removeevent?eventname=<?php echo $EventName; ?>' >Remove the Event</a></button>
+                <button type="button" class="btn btn-danger"><a href='/authenticated/services/removeevent?eventname=<?php echo $EventName; ?>' >Remove the Event</a></button>
               </div>
             </div>
           </div>

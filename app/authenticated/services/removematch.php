@@ -7,9 +7,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     exit;
 }
 
-$url = 'http://10.5.0.4:8000/api/v1/auth/event/removeevent';
+$url = 'http://10.5.0.4:8000/api/v1/auth/matches/removematch';
 
-$eventData = array('EventName' => $_GET["eventname"]);
+$eventData = array('TeamNumber' => $_GET["teamnumber"]);
 
 $options = array('http' => array(
   'method'  => 'POST',
@@ -22,6 +22,6 @@ $result = @file_get_contents($url, false, $context);
 
 $result = json_decode($result, true);
 
-header('location: events');
+header('location: ' . $_GET["referance"]);
 
 ?>
