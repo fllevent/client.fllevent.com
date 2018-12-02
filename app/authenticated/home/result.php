@@ -180,7 +180,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="editmatch">
+        <h1>Any Blank Will Not be Changed</h1>
+        <form method="post" action="/authenticated/services/editmatch?id=<?php echo $MatchID;?>&referance=<?php echo $_SERVER["REQUEST_URI"]; ?>">
             <div class="form-group">
               <label for="team-number" class="col-form-label">Team Number:</label>
               <input type="number" name="team-number"  class="form-control" id="team-number">
