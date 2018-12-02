@@ -226,7 +226,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger"><a href='#' >Remove the Team</a></button>
+                <button type="button" class="btn btn-danger"><a href='removematch?teamnumber=<?php echo $TeamNumber ?>&referance=<?php echo $_SERVER["REQUEST_URI"] ?>' >Remove the Team</a></button>
               </div>
             </div>
           </div>
