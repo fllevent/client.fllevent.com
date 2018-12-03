@@ -22,6 +22,6 @@ $result = @file_get_contents($url, false, $context);
 
 $result = json_decode($result, true);
 
-header('location: authenticated/home/events');
+header('location: /authenticated/home/events');
 
 ?>
