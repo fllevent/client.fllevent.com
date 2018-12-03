@@ -36,17 +36,18 @@
                         } else if ($resultObj == "null") {
                           echo "Event not found error null two";
                         } else {
-                            for ($i = 0; $i <= count($resultObj); $i++){
+                            for ($i = 0; $i <= count($resultObj) -1; $i++){
                                 $MatchID = $resultObj[$i]["MatchID"];
                                 $TeamNumber = $resultObj[$i]["TeamNumber"];
-                                // $MatchOne = $resultObj[$i]["MatchScoreOne"];
+                                $TeamName = $resultObj[$i]["TeamName"];
+                                $MatchOne = $resultObj[$i]["MatchScoreOne"];
                                 // $MatchTwo = $resultObj[$i]["MatchScoreTwo"];
                                 // $MatchThree = $resultObj[$i]["MatchScoreThree"];
                             
                                 echo "
                                   <th><a href='result?event-teamnumber=$TeamNumber'>$TeamNumber</a></th>
-                                  <th><a href='result?event-teamnumber=$TeamNumber'> -- </th>
-                                  <th> -- </th>
+                                  <th><a href='result?event-teamnumber=$TeamNumber'>$TeamName</th>
+                                  <th> N/A </th>
                                   </tr>
                                   ";
                             }

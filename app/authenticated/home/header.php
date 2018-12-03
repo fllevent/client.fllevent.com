@@ -96,13 +96,13 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-left mr-auto">
                         <!-- ============================================================== -->
-                        <!-- Search -->
+                        <!-- Search add back when want to uncorporate search TODO  -->
                         <!-- ============================================================== -->
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <!-- <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search position-absolute">
                                 <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
-                        </li>
+                        </li> -->
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
