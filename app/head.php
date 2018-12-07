@@ -14,7 +14,7 @@
 
     <link rel="icon" 
       type="image/png" 
-      href="assets/img/favicon.png">
+      href="assets/images/favicon.png">
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129296536-1"></script>
